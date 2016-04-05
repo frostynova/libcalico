@@ -25,7 +25,7 @@ from subprocess32 import check_output, check_call, CalledProcessError, STDOUT
 from netaddr import IPAddress
 
 _log = logging.getLogger(__name__)
-_log.addHandler(logging.NullHandler())
+#_log.addHandler(logging.NullHandler())
 
 PREFIX_LEN = {4: 32, 6: 128}
 """The IP address prefix length to assign, by IP version."""
