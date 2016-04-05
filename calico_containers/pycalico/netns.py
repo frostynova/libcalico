@@ -176,10 +176,14 @@ def set_veth_mac(veth_name_host, mac):
     :return: None. Raises CalledProcessError on error.
     """
     #TODO MAC should be an EUI object.
-    check_output(['ip', 'link', 'set',
+    _log.debug("veth_name: %s, mac: %s" % (veth_name_host, mac))
+    a=check_output(['ip', 'link', 'set',
                 'dev', veth_name_host,
                 'address', mac],
                timeout=IP_CMD_TIMEOUT)
+    b=check_output(['ip', 'link'])
+    _log.debug("set return: %s" % a)
+    _log.debug("ip return: %s" % b)
 
 
 def add_ns_default_route(namespace, next_hop, veth_name_ns):
